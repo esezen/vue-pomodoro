@@ -14,6 +14,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f https://github.com/esezen/vue-pomodoro.gitmaster:gh-pages
+git push -f https://github.com/esezen/vue-pomodoro.git master:gh-pages
 
 cd -
