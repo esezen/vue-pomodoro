@@ -1,26 +1,38 @@
-# pomodoro
+[![forthebadge](https://forthebadge.com/images/badges/winter-is-coming.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)](https://forthebadge.com)
+
+# Vue Pomodoro
+
+This is a small Pomodoro clock app made with Vue JS.
 
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
+
 ```
-yarn run build
+yarn build
 ```
 
 ### Run your tests
+
 ```
-yarn run test
+yarn test
 ```
 
 ### Lints and fixes files
+
 ```
-yarn run lint
+yarn lint
 ```
