@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <div class="text-center text-white pt-32">
+    <div class="text-center text-white pt-16 pb-20">
       <div class="flex justify-between w-2/3 mx-auto">
         <button
           @click="sessionLength=25"
@@ -21,21 +21,62 @@
           Long Break
         </button>
       </div>
-      <p class="text-20xl timer-text">{{minutes}}:{{seconds}}</p>
+      <p class="text-20xl text-font-concert">{{minutes}}:{{seconds}}</p>
       <div class="w-3/5 mx-auto flex justify-between mt-20">
         <i
           @click="resetTimer"
-          class="fas fa-redo text-10xl"
+          class="fas fa-redo text-10xl cursor-pointer"
         ></i>
         <i
           @click="startTimer"
-          class="fas fa-play text-10xl"
+          class="fas fa-play text-10xl cursor-pointer"
         ></i>
         <i
           @click="stopTimer"
-          class="fas fa-pause text-10xl"
+          class="fas fa-pause text-10xl cursor-pointer"
         ></i>
       </div>
+      <div class="w-3/5 mt-32 bg-pink-dark mx-auto pb-10">
+        <p class="text-5xl text-font-concert py-2">TO-DO LIST</p>
+        <form
+          autocomplete="off"
+          class="w-full max-w-sm"
+          @submit.prevent
+        >
+          <input
+            class="appearance-none w-4/5 bg-grey-lighter text-black border border-grey-lighter rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey rounded-full text-center"
+            id="grid-last-name"
+            type="text"
+            placeholder="New To-Do"
+            v-on:keyup.enter.prevent="handleAddTodo"
+            v-model="newTodo"
+          >
+
+        </form>
+        <div
+          class="w-4/5 mx-auto overflow-hidden shadow-lg bg-white mt-6"
+          v-for="todo in todos"
+        >
+          <div class="px-6 py-4 flex justify-between align-baseline items-center">
+            <span></span>
+            <p
+              class="text-grey-darker text-base"
+              :class="{ 'line-through' : todo.done}"
+            >
+              {{todo.todo}}
+            </p>
+            <input
+              class="
+              mr-2
+              leading-tight"
+              type="checkbox"
+              @click="todo.done = !todo.done"
+            >
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -48,7 +89,9 @@ export default {
     return {
       timeLeft: 1500,
       timer: null,
-      sessionLength: 25
+      sessionLength: 25,
+      newTodo: "",
+      todos: []
     };
   },
   methods: {
@@ -56,6 +99,9 @@ export default {
       if (this.timeLeft >= 1) {
         this.timeLeft--;
       } else {
+        this.playSound(
+          "http://soundbible.com/mp3/Air Plane Ding-SoundBible.com-496729130.mp3"
+        );
         this.timeLeft = 0;
         this.resetTimer();
       }
@@ -73,6 +119,15 @@ export default {
     stopTimer: function() {
       clearInterval(this.timer);
       this.timer = null;
+    },
+    playSound: function(sound) {
+      if (sound) {
+        new Audio(sound).play();
+      }
+    },
+    handleAddTodo: function() {
+      this.todos.push({ todo: this.newTodo, done: false });
+      this.newTodo = "";
     }
   },
   computed: {
