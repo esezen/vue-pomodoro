@@ -11,6 +11,14 @@
  */
 @tailwind preflight;
 
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+
+#app {
+  background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
+}
+.timer-text {
+  font-family: 'Concert One', cursive;
+}
 /**
  * This injects any component classes registered by plugins.
  *
