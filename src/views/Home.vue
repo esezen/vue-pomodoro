@@ -55,7 +55,8 @@
         </form>
         <div
           class="w-4/5 mx-auto overflow-hidden shadow-lg bg-white mt-6"
-          v-for="todo in todos"
+          v-for="(todo,index) in todos"
+          :key="index"
         >
           <div class="px-6 py-4 flex justify-between align-baseline items-center">
             <span></span>
