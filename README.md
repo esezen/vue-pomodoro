@@ -7,6 +7,8 @@
 
 This is a small Pomodoro clock app made with Vue JS.
 
+[Live Here](https://esezen.github.io/vue-pomodoro/)
+
 ## Project setup
 
 ```
