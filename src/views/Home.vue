@@ -40,14 +40,14 @@
         <p class="text-5xl text-font-concert py-2">TO-DO LIST</p>
         <form
           autocomplete="off"
-          class="w-full max-w-sm"
+          class="w-full"
           @submit.prevent
         >
           <input
             class="appearance-none w-4/5 bg-grey-lighter text-black border border-grey-lighter rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey rounded-full text-center"
             id="grid-last-name"
             type="text"
-            placeholder="New To-Do"
+            placeholder="Type your to-do and press enter"
             v-on:keyup.enter.prevent="handleAddTodo"
             v-model="newTodo"
           >
